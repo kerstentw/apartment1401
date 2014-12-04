@@ -17,20 +17,14 @@ class Title(Room):
 	def enter(self):
 		room_words = 'You are on the title screen!  What next?\
 		<form type = "input" action = "/" method = "post"><br/>\
-			<input type = "radio" name = "start" value = "choice1"/>\
+			<input type = "radio" name = "start" value = "choice1"/>Begin Game</input>\
+			<br/><br/> \
+			<input type = "submit">\
 		</form>'
 	
 		return room_words
 
-class RoomLibrary(object):
-	'''
-	
-	This is where you put the rooms.
-	Store them in a dictionary with the keys labeled by numbers
-	'''
 
-	rooms = {1: Title()}
-	
 	
 class Engine(object):
 	'''
@@ -41,18 +35,20 @@ class Engine(object):
 	Acts also as a server for the rooms...
 	'''
 		
-	def __init__(self, roomlib = {}):
-		self.rooms = roomlib
+	def __init__(self):
+		self.rooms = {0: Title(),}
 		
 	def startRoom(self):
-		self.rooms[1].enter()
+		beginning = self.rooms[0]
+		return beginning.enter()
 	
-	def nextRoom(self):
-		pass
+	def nextRoom(self,room_designator):
+		#Room Designator must be a number sent back from the formfeed in the html
+		nextroom = self.rooms[room_designator] 
+		return nextroom.enter()
 		
 		
 		
-#def gamerun():
-#	RoomLib = RoomLibrary()
-#	Roomdude = Engine(RoomLib)
-#	Roomdude.startRoom()
+def gamerun():
+	Roomdude = Engine()
+	return Roomdude.startRoom()

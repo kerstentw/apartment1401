@@ -10,10 +10,7 @@ render = web.template.render("templates/")
 class INDEX(object):
 
 	def GET(self):
-		content = 'You are on the title screen!  What next?\
-		<form type = "input" action = "/" method = "post"><br/>\
-			<input type = "radio" name = "start" value = "choice1">Name</input>\
-		</form>'
+		content = engine.gamerun()
 		return render.index(content = content)
 		
 	def POST(self):
