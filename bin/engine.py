@@ -23,36 +23,65 @@ class Room(object):
 						
 class Title(Room): #The RADIO must send a value equaling the key of the
 					#dictionary storage location you are storing the room
-
+					#0
+					
 	def enter(self):
 		room_words = roomstrings.title() + '<form type = "input" action = "/index" method = "POST"><br/>\
-			<input type = "radio" name = "content1" value = 1 />Begin Game</input>\
+			<input type = "radio" name = "content1" value = 3 />Begin Game</input>\
 			<input type = "radio" name = "content1" value = 2>Exit</input>\
 			<br/><br/> \
 			<input type = "submit" value = "Start Game">\
-		</form>'
+			</form>'
 	
 		return room_words
+		
+		
+class DiningAreaWest(Room): #1
+			
+	def enter(self):
+		room_words = diningarea_west + '<form action = "/index" method = "POST">\
+		<input type = "radio" name = "content1" value = 4>\
+		<input type = "radio" name = "content1" value = 3>\
+		\
+		</form>'
+		
+		return room_words
+		
+		
 
-		
-		
-		
-class TestRoom(Room): #This will eventually be a room!!!!!!
+class DiningAreaEast(Room): #2
 	
 	def enter(self):
-		room_words = roomstrings.testroom() + '<br><form type = "input" action = "/index" method "POST">\
-		<input type = "radio" name = "content1" value = 0>Go Back</input>\
-		<br><input type = "submit" value = "DO IT!">\
+		pass
+		
+
+		
+class DiningAreaNorth(Room): #3
+	
+	def enter(self):
+		room_words = roomstrings.diningarea_north() + '<br><form type = "input" action = "/index" method "POST">\
+		<input type = "radio" name = "content1" value = 1>Turn left</input>\
+		<input type = "radio" name = "content1" value = 2>Turn Right</input>\
+		<br><input type = "submit" value = "Go.">\
+		\
 		</form>\
 		'
-		
 		return room_words
+	
+class DiningAreaSouth(Room): #4
+	
+	def enter(self):
+		pass
 	
 	
 class Exit(Room):
 
 	def enter(self):
 		return roomstrings.exit()
+	
+#########################################################################
+########################ROOMS####################################
+#########################################
 	
 class Engine(object):
 	'''
@@ -66,8 +95,10 @@ class Engine(object):
 	def __init__(self):
 		self.rooms = {
 		0: Title(),
-		1: TestRoom(),
-		2: Exit()
+		1: DiningAreaWest(),
+		2: DiningAreaEast(),
+		3: DiningAreaNorth(),
+		4: DiningAreaSouth(),
 		}
 		
 	def startRoom(self):
