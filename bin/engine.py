@@ -4,7 +4,9 @@
 #       And 3.) The return keyword
 # Each room is an HTML packet that is sent to the application layer through the Engine.
 
-
+#############################################
+################ROOMS########################
+#############################################
 
 import roomstrings #Roomstrings contains a bunch of functions to call that return strings
 
@@ -27,8 +29,8 @@ class Title(Room): #The RADIO must send a value equaling the key of the
 					
 	def enter(self):
 		room_words = roomstrings.title() + '<form type = "input" action = "/index" method = "POST"><br/>\
-			<input type = "radio" name = "content1" value = 3 />Begin Game</input>\
-			<input type = "radio" name = "content1" value = 2>Exit</input>\
+			<input type = "radio" name = "content1" value = 3 >Begin Game</input>\
+			<input type = "radio" name = "content1" value = 14>Exit</input>\
 			<br/><br/> \
 			<input type = "submit" value = "Start Game">\
 			</form>'
@@ -40,8 +42,9 @@ class DiningAreaWest(Room): #1
 			
 	def enter(self):
 		room_words = roomstrings.diningarea_west() + '<form action = "/index" method = "POST">\
-		<input type = "radio" name = "content1" value = 4>Turn Left </input>\
-		<input type = "radio" name = "content1" value = 3> Turn Right </input>\
+		<br/><input type = "radio" name = "content1" value = 4>Turn Left. </input><br/>\
+		<input type = "radio" name = "content1" value = 3> Turn Right. </input><br/>\
+		<input type = "radio" name = "content1" value = 7>Go to Bathroom.</input><br/>\
 		<input type = "submit" value = "GO"/>\
 		</form>'
 		
@@ -53,8 +56,9 @@ class DiningAreaEast(Room): #2
 	
 	def enter(self):
 		room_words = roomstrings.diningarea_east() + '<br><form type = "input" action = "/index" method = "POST">\
-		<input type = "radio" name = "content1" value = 3>Turn left</input>\
-		<input type = "radio" name = "content1" value = 4>Turn Right</input>\
+		<input type = "radio" name = "content1" value = 3>Turn left </input> <br/>\
+		<input type = "radio" name = "content1" value = 4>Turn Right </input> <br/>\
+		<input type = "radio" name = "content1" value = 10>Go to Kitchen </inout> <br/>\
 		<br><input type = "submit" value = "Go.">\
 		\
 		</form>\
@@ -68,8 +72,10 @@ class DiningAreaNorth(Room): #3
 	
 	def enter(self):
 		room_words = roomstrings.diningarea_north() + '<br><form type = "input" action = "/index" method = "POST">\
-		<input type = "radio" name = "content1" value = 1>Turn left</input>\
-		<input type = "radio" name = "content1" value = 2>Turn Right</input>\
+		<input type = "radio" name = "content1" value = 1>Turn left</input><br/>\
+		<input type = "radio" name = "content1" value = 2>Turn Right</input><br/>\
+		<input type = "radio" name = "content1" value = 5>Go to TV Room</input><br/>\
+		<input type = "radio" name = "content1" value = 6>Go to Parent\'s room </input><br/>\
 		<br><input type = "submit" value = "Go.">\
 		\
 		</form>\
@@ -80,8 +86,10 @@ class DiningAreaSouth(Room): #4
 	
 	def enter(self):
 		room_words = roomstrings.diningarea_south() + '<br><form type = "input" action = "/index" method = "POST">\
-		<input type = "radio" name = "content1" value = 2>Turn left</input>\
-		<input type = "radio" name = "content1" value = 1>Turn Right</input>\
+		<input type = "radio" name = "content1" value = 2>Turn left</input> <br/>\
+		<input type = "radio" name = "content1" value = 1>Turn Right</input> <br/>\
+		<input type = "radio" name = "content1" value = 8> Go to the Study </input> <br/>\
+		<input type = "radio" name = "content1" value = 9>Go to brother\'s room </input> <br/>\
 		<br><input type = "submit" value = "Go.">\
 		\
 		</form>\
@@ -90,13 +98,107 @@ class DiningAreaSouth(Room): #4
 		return room_words
 	
 	
+	
+
+class TV_Room(Room): #5
+
+	def enter(self):
+		room_words =  roomstrings.tvroom() + '<form action = "/index" method = "POST">\
+		<input type = "radio" name = "content1" value = 11> Approach Window. </input>\
+		<input type = "radio" name = "content1" value = 3> Go Back. </input>\
+		<input type = "submit" value = "Go."/>\
+		</form>'		
+		return room_words
+		
+class ParentRoom(Room): #6
+	
+	def enter(self):
+		room_words =  roomstrings.parentroom() + '<form action = "/index" method = "POST">\
+		<input type = "radio" name = "content1" value = 3> Go Back.</input>\
+		<input type = "submit" value = "Go">\
+		</form>\
+		'
+		
+		return room_words
+		
+
+	
+class Bathroom(Room): #7
+	
+	def enter(self):
+		room_words = roomstrings.bathroom() + '<form action = "/index" method = "POST">\
+		<input type = "radio" name = "content1" value = 1> Go Back </input>\
+		<input type = "submit" value = "Go.">\
+		</form>\
+		'
+		
+		return room_words
+		
+		
+class Study(Room): #8
+
+	def enter(self):
+		room_words =  roomstrings.study() + '<form action = "index" method = "POST">\
+		<input type = "radio" name = "content1" value = 4> Go Back. </input>\
+		<input type = "submit" value = "Go.">\
+		</form>'
+
+		return room_words
+		
+class BrothersRoom(Room): #9
+	
+	def enter(self):
+		room_words =  roomstrings.brothersroom() + '<form action = "/index" method = "POST">\
+		<input type = "radio" name = "content1" value = 4>Go Back</input>\
+		<input type = "submit" value = "go.">\
+		</form>'
+		
+		return room_words
+		
+		
+		
+class Kitchen(Room): #10
+
+	def enter(self):
+		room_words = roomstrings.kitchen() + '<form action = "/index" method = "POST">\
+		<input type = "radio" name = "content1" value = 2>Go back. </input>\
+		<input type = "submit" value = "Go.">\
+		</form>\
+		'
+		
+		return room_words
+
+
+		
+class Window(Room): #11
+
+	def enter(self):
+		room_words =  roomstrings.window() + '<form action = "/index" method = "POST">\
+		<input type = "radio" name = "content1" value = 5> Go Back </input>\
+		<input type = "submit" value = "Go.">\
+		</form>'
+		
+		return room_words
+		
+class End(Room): #12
+	
+	def enter(self):
+		return roomstrings.end()
+		
+		
+		
+class Credits(Room):
+
+	def enter(self):
+		return roomstrings.credits()
+	
 class Exit(Room):
 
 	def enter(self):
 		return roomstrings.exit()
 	
 #########################################################################
-########################ROOMS####################################
+######################ENGINE####################################
 #########################################
 	
 class Engine(object):
@@ -115,6 +217,16 @@ class Engine(object):
 		2: DiningAreaEast(),
 		3: DiningAreaNorth(),
 		4: DiningAreaSouth(),
+		5: TV_Room(),
+		6: ParentRoom(),
+		7: Bathroom(),
+		8: Study(),
+		9: BrothersRoom(),
+		10: Kitchen(),
+		11: Window(),
+		12: End(),
+		13: Credits(),
+		14: Exit(),
 		}
 		
 	def startRoom(self):
