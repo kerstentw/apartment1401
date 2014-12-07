@@ -104,9 +104,9 @@ class TV_Room(Room): #5
 
 	def enter(self):
 		room_words =  roomstrings.tvroom() + '<form action = "/index" method = "POST">\
-		<input type = "radio" name = "content1" value = 11> Approach Window. </input>\
-		<input type = "radio" name = "content1" value = 3> Go Back. </input>\
-		<input type = "submit" value = "Go."/>\
+		<br/><input type = "radio" name = "content1" value = 11> Approach Window. </input>\
+		<br/><input type = "radio" name = "content1" value = 3> Go Back. </input>\
+		<br/><input type = "submit" value = "Go."/>\
 		</form>'		
 		return room_words
 		
@@ -114,8 +114,8 @@ class ParentRoom(Room): #6
 	
 	def enter(self):
 		room_words =  roomstrings.parentroom() + '<form action = "/index" method = "POST">\
-		<input type = "radio" name = "content1" value = 3> Go Back.</input>\
-		<input type = "submit" value = "Go">\
+		<br/><input type = "radio" name = "content1" value = 3> Go Back.</input>\
+		<br/><input type = "submit" value = "Go">\
 		</form>\
 		'
 		
@@ -127,8 +127,8 @@ class Bathroom(Room): #7
 	
 	def enter(self):
 		room_words = roomstrings.bathroom() + '<form action = "/index" method = "POST">\
-		<input type = "radio" name = "content1" value = 1> Go Back </input>\
-		<input type = "submit" value = "Go.">\
+		<br/><input type = "radio" name = "content1" value = 1> Go Back </input>\
+		<br/><input type = "submit" value = "Go.">\
 		</form>\
 		'
 		
@@ -139,8 +139,8 @@ class Study(Room): #8
 
 	def enter(self):
 		room_words =  roomstrings.study() + '<form action = "index" method = "POST">\
-		<input type = "radio" name = "content1" value = 4> Go Back. </input>\
-		<input type = "submit" value = "Go.">\
+		<br/><input type = "radio" name = "content1" value = 4> Go Back. </input>\
+		<br/><input type = "submit" value = "Go.">\
 		</form>'
 
 		return room_words
@@ -149,8 +149,8 @@ class BrothersRoom(Room): #9
 	
 	def enter(self):
 		room_words =  roomstrings.brothersroom() + '<form action = "/index" method = "POST">\
-		<input type = "radio" name = "content1" value = 4>Go Back</input>\
-		<input type = "submit" value = "go.">\
+		<br/><input type = "radio" name = "content1" value = 4>Go Back</input>\
+		<br/><input type = "submit" value = "go.">\
 		</form>'
 		
 		return room_words
@@ -161,8 +161,8 @@ class Kitchen(Room): #10
 
 	def enter(self):
 		room_words = roomstrings.kitchen() + '<form action = "/index" method = "POST">\
-		<input type = "radio" name = "content1" value = 2>Go back. </input>\
-		<input type = "submit" value = "Go.">\
+		<br/><input type = "radio" name = "content1" value = 2>Go back. </input>\
+		<br/><input type = "submit" value = "Go.">\
 		</form>\
 		'
 		
@@ -174,7 +174,7 @@ class Window(Room): #11
 
 	def enter(self):
 		room_words =  roomstrings.window() + '<form action = "/index" method = "POST">\
-		<input type = "radio" name = "content1" value = 5> Go Back </input>\
+		<br/><input type = "radio" name = "content1" value = 5> Go Back </input>\
 		<input type = "submit" value = "Go.">\
 		</form>'
 		
@@ -187,15 +187,89 @@ class End(Room): #12
 		
 		
 		
-class Credits(Room):
+class Credits(Room): #13
 
 	def enter(self):
 		return roomstrings.credits()
 	
-class Exit(Room):
+class Exit(Room): #14
 
 	def enter(self):
 		return roomstrings.exit()
+	
+	
+#############################################################
+###############NOTES AND OBJECTS#############################
+#############################################################
+
+class ReportCard(Room): #15
+
+		def enter(self):
+			pass
+	
+
+
+class Homework(Room): #16
+
+		def enter(self):
+			pass	
+	
+	
+	
+class TeacherReport(Room): #17
+
+		def enter(self):
+			pass
+			
+			
+			
+class TeamNote(Room): #18
+
+	def enter(self):
+		pass
+		
+		
+class SuicideNote(Room): #19
+	
+	def enter(self):
+		pass
+		
+		
+		
+class MomJournal(Room): #20
+
+	def enter(self):
+		pass
+		
+		
+		
+class DadLayoff(Room): #21
+
+	def enter(self):
+		pass
+		
+		
+		
+class Bills(Room): #22
+
+	def enter(self):
+		pass
+		
+		
+		
+class BrotherJournal(Room): #23
+
+	def enter(self):
+		pass
+		
+		
+		
+class ThreatNote(Room): #24
+
+	def enter(self):
+		pass
+		
+	
 	
 #########################################################################
 ######################ENGINE####################################
@@ -229,7 +303,16 @@ class Engine(object):
 		13: Credits(),
 		14: Exit(),
 		#####OBJECTS#####
-		
+		15: ReportCard(),
+		16: Homework(),
+		17: TeacherReport(),
+		18: TeamNote(),
+		19: SuicideNote(),
+		20: MomJournal(),
+		21: DadLayoff(),
+		22: Bills(),
+		23: BrotherJournal(),
+		24: ThreatNote(),
 		}
 		
 	def startRoom(self):
