@@ -17,6 +17,7 @@ class INDEX(object):
 		return render.index(content = content)
 		
 	def POST(self):
+		
 		try:
 			choice = web.input()
 			next_choice = choice.content1 #content1 is the name of the set of radio buttons on the format

@@ -39,10 +39,10 @@ class Title(Room): #The RADIO must send a value equaling the key of the
 class DiningAreaWest(Room): #1
 			
 	def enter(self):
-		room_words = diningarea_west + '<form action = "/index" method = "POST">\
-		<input type = "radio" name = "content1" value = 4>\
-		<input type = "radio" name = "content1" value = 3>\
-		\
+		room_words = roomstrings.diningarea_west() + '<form action = "/index" method = "POST">\
+		<input type = "radio" name = "content1" value = 4>Turn Left </input>\
+		<input type = "radio" name = "content1" value = 3> Turn Right </input>\
+		<input type = "submit" value = "GO"/>\
 		</form>'
 		
 		return room_words
@@ -52,14 +52,22 @@ class DiningAreaWest(Room): #1
 class DiningAreaEast(Room): #2
 	
 	def enter(self):
-		pass
+		room_words = roomstrings.diningarea_east() + '<br><form type = "input" action = "/index" method = "POST">\
+		<input type = "radio" name = "content1" value = 3>Turn left</input>\
+		<input type = "radio" name = "content1" value = 4>Turn Right</input>\
+		<br><input type = "submit" value = "Go.">\
+		\
+		</form>\
+		'
+		
+		return room_words
 		
 
 		
 class DiningAreaNorth(Room): #3
 	
 	def enter(self):
-		room_words = roomstrings.diningarea_north() + '<br><form type = "input" action = "/index" method "POST">\
+		room_words = roomstrings.diningarea_north() + '<br><form type = "input" action = "/index" method = "POST">\
 		<input type = "radio" name = "content1" value = 1>Turn left</input>\
 		<input type = "radio" name = "content1" value = 2>Turn Right</input>\
 		<br><input type = "submit" value = "Go.">\
@@ -71,7 +79,15 @@ class DiningAreaNorth(Room): #3
 class DiningAreaSouth(Room): #4
 	
 	def enter(self):
-		pass
+		room_words = roomstrings.diningarea_south() + '<br><form type = "input" action = "/index" method = "POST">\
+		<input type = "radio" name = "content1" value = 2>Turn left</input>\
+		<input type = "radio" name = "content1" value = 1>Turn Right</input>\
+		<br><input type = "submit" value = "Go.">\
+		\
+		</form>\
+		'
+		
+		return room_words
 	
 	
 class Exit(Room):
