@@ -56,7 +56,7 @@ class DiningAreaEast(Room): #2
 	
 	def enter(self):
 		room_words = roomstrings.diningarea_east() + '<br><form type = "input" action = "/index" method = "POST">\
-		<input type = "radio" name = "content1" value = 3>Turn left </input> <br/>\
+		<input type = "radio" name = "content1" value = 3>Turn Left </input> <br/>\
 		<input type = "radio" name = "content1" value = 4>Turn Right </input> <br/>\
 		<input type = "radio" name = "content1" value = 10>Go to Kitchen </inout> <br/>\
 		<br><input type = "submit" value = "Go.">\
@@ -72,7 +72,7 @@ class DiningAreaNorth(Room): #3
 	
 	def enter(self):
 		room_words = roomstrings.diningarea_north() + '<br><form type = "input" action = "/index" method = "POST">\
-		<input type = "radio" name = "content1" value = 1>Turn left</input><br/>\
+		<input type = "radio" name = "content1" value = 1>Turn Left</input><br/>\
 		<input type = "radio" name = "content1" value = 2>Turn Right</input><br/>\
 		<input type = "radio" name = "content1" value = 5>Go to TV Room</input><br/>\
 		<input type = "radio" name = "content1" value = 6>Go to Parent\'s room </input><br/>\
@@ -86,7 +86,7 @@ class DiningAreaSouth(Room): #4
 	
 	def enter(self):
 		room_words = roomstrings.diningarea_south() + '<br><form type = "input" action = "/index" method = "POST">\
-		<input type = "radio" name = "content1" value = 2>Turn left</input> <br/>\
+		<input type = "radio" name = "content1" value = 2>Turn Left</input> <br/>\
 		<input type = "radio" name = "content1" value = 1>Turn Right</input> <br/>\
 		<input type = "radio" name = "content1" value = 8> Go to the Study </input> <br/>\
 		<input type = "radio" name = "content1" value = 9>Go to brother\'s room </input> <br/>\
