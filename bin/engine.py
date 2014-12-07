@@ -212,6 +212,7 @@ class Engine(object):
 		
 	def __init__(self):
 		self.rooms = {
+		#####ROOMS#####
 		0: Title(),
 		1: DiningAreaWest(),
 		2: DiningAreaEast(),
@@ -227,6 +228,8 @@ class Engine(object):
 		12: End(),
 		13: Credits(),
 		14: Exit(),
+		#####OBJECTS#####
+		
 		}
 		
 	def startRoom(self):
