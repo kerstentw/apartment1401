@@ -85,8 +85,8 @@ def kitchen():
 	
 def window():
 
-	return """The window is unlocked but it is stuck.  This always seemed to happen at night.
-	It may unstuck itself as the morning progresses.
+	return """The window leads to a small porch.  The doorway is unlocked but it is stuck.  
+	This always seemed to happen at night.  It may unstuck itself as the morning progresses.
 	"""
 	
 	
