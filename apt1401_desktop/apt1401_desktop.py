@@ -21,13 +21,17 @@ class TK(object):
 		self.tk = interfaces
 		self.frame = Tkinter.Frame(
 							self.tk, 
-							borderwidth = 5,
-							#height = 1000,
-							#width = 550,
-							cnf = {'height':700, 'width' : 550}
+							borderwidth = 15,
 							)
+							
+		self.button_frame = Tkinter.Frame(
+								self.tk,
+								borderwidth = 0,
+								height = 100,
+								)
 		self.message = 'WELCOME!'
 		self.player_coord = (0,0)
+	
 	
 	
 	def __del__(self):
@@ -45,11 +49,9 @@ class TK(object):
 		
 		
 		#self.frame = Tkinter.Frame(self.tk, borderwidth = 5)
-		self.frame.pack(
-		fill = BOTH, 
-		padx = 40, 
-		pady = 0)
-		
+		else:
+			self.frame.pack()
+			self.button_frame.pack()
 	
 	
 	def myText(self):
@@ -79,7 +81,9 @@ class TK(object):
 	
 	
 	def myImage(self):
-		
+	
+	##!!!!!!Turn this into an image serving thing based on the player
+	## Location in an array.###
 		
 	#if PIL
 		#imager = PIL.open("SADBATMAN.jpg")
@@ -93,8 +97,6 @@ class TK(object):
 			background = "#FFFFFF",
 			height = 500,
 			width = 500,
-			pady = 5,
-			padx = 5,
 			)
 		
 		label.image = titleimage
@@ -125,71 +127,73 @@ class TK(object):
 		) 
 		
 		self.button_exit.pack(
-			anchor = 'se'
+			anchor = 'ne'
 		)
 		
 		
 	def myButtons_lower(self):
-				
+		
+		
 		###FORWARD###
 		self.button_forward = Tkinter.Button(
-			self.frame,
-			text = "Fwd",
+			self.button_frame,
+			text = "^",
 			command = lambda: self.testMe('Forward'),
 			padx = 3,
 			pady = 3
 		)
-		self.button_forward.place(x = 250, y = 525)
+		#self.button_forward.place(x = 0, y = 0)
 		#self.button_forward.pack(anchor = 's')
+		self.button_forward.grid(row = 0, column = 1)
+		
 		
 		###LEFT###
 		self.button_left = Tkinter.Button(
-			self.frame,
-			text = "lft",
+			self.button_frame,
+			text = "<",
 			command = lambda: self.testMe("Left"),
 			padx = 3,
 			pady = 3
 		)
-		self.button_left.place(x = 200, y = 575)
+		#self.button_left.place(x = -50, y = 1)
 		#self.button_left.pack(anchor = 's')
+		self.button_left.grid(row = 1, column = 0)
 		
 		###RIGHT###
 		self.button_right = Tkinter.Button(
-			self.frame,
-			text = "rgt",
+			self.button_frame,
+			text = ">",
 			command = lambda: self.testMe('Right'),
 			padx = 3,
 			pady = 3
 		)
 		
-		self.button_right.place(x = 275, y = 575 )
+		#self.button_right.place(x = 50, y = 0 )
 		#self.button_right.pack(anchor = 's')
-		
+		self.button_right.grid(row = 1, column = 2)
 		
 		###BACK###
 		self.button_back = Tkinter.Button(
-			self.frame,
-			text = "bck",
+			self.button_frame,
+			text = "v",
 			command = lambda: self.testMe('Back'),
-			padx = 3,
-			pady = 3, 
+			padx = 4,
+			pady = 4, 
 		)
-		self.button_back.place(x = 250, y = 600)
+		#self.button_back.place(x = 5, y = 5 )
 		
-		#self.button_back.pack(anchor = 's')
 		
+		#self.button_back.pack()
+		self.button_back.grid(row = 2, column =1)
 		###INVESTIGATE###
 		
 		
-		
-		
+				
 	def run(self, *refresh):
 
 		if refresh:
 			
 			self.myFrame(1)
-			
-			
 			#self.myButtons_upper()
 			self.myImage()
 			self.myText()
@@ -197,14 +201,15 @@ class TK(object):
 			print self.frame.winfo_children()
 			
 		else:
-			self.myFrame()
+			
+			
 			self.myButtons_upper()
 			self.myImage()
 			self.myText()
+			self.myFrame()						
 			self.myButtons_lower()
 			self.tk.mainloop()
-			self.frame.winfo_children()
-
+			
 
 
 	def testMe(self, *test_text):
