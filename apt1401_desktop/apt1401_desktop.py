@@ -5,12 +5,21 @@ from Tkconstants import *
 #from PIL import Image as Pilconvert
 #from PIL import imageTK
 
+####
 
-class Images(UserDict):
+###PlaceWorldGrid here
+
+####
 	
-	def __init__(self):
-		self.__init__ = UserDict.__init__
+class Player(object):
 	
+	"""
+	The player always starts at coordinates 0,0
+	"""
+	
+	def __init__(self,world = "NOWORLD"):
+		self.coordinates = (0,0)	
+		self.world = world
 		
 class TK(object):
 	
@@ -19,6 +28,19 @@ class TK(object):
 	def __init__(self,interfaces):
 		self.imagelib = Images()
 		self.tk = interfaces
+		
+		
+		self.image_dict = {
+		"Title" : Tkinter.BitmapImage(file = 'images/SADBATMAN.xbm'),
+		"Left" : Tkinter.BitmapImage(file = 'images/RBH.xbm'),
+		"Right" : Tkinter.BitmapImage(file = 'images/RIGHT.xbm'),
+		"Back" : Tkinter.BitmapImage(file = 'images/botw.xbm'),
+		"Forward" : Tkinter.BitmapImage(file = 'images/SADBATMAN.xbm')
+			}
+		
+		self.working_img = self.image_dict["Title"]
+		
+		
 		self.frame = Tkinter.Frame(
 							self.tk, 
 							borderwidth = 15,
@@ -89,7 +111,9 @@ class TK(object):
 		#imager = PIL.open("SADBATMAN.jpg")
 		#titleimage = Tkinter.PhotoImage(imager)
 		
-		titleimage = Tkinter.BitmapImage(file = 'SADBATMAN.xbm')
+		
+		
+		titleimage = self.working_img
 		
 		label = Tkinter.Label(
 			self.frame, 
@@ -193,11 +217,13 @@ class TK(object):
 
 		if refresh:
 			
-			self.myFrame(1)
+			
 			#self.myButtons_upper()
+			self.myFrame(1)
 			self.myImage()
 			self.myText()
 			#self.myButtons_lower()
+			
 			print self.frame.winfo_children()
 			
 		else:
@@ -216,9 +242,13 @@ class TK(object):
 			
 			if test_text:
 				self.message = test_text
+				self.working_img = self.image_dict[test_text[0]]
 				#self.text.destroy()
 				self.run(1)
+	
 				print "test %r" % test_text
+			
+			
 			
 			else:
 				self.message = 'No Connect'
